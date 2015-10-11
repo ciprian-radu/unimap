@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/core" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:core="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/core">
+
+    <xsd:annotation>
+    	<xsd:documentation>XML schema for a core belonging to a Communiaction Task Graph (CTG).</xsd:documentation></xsd:annotation>
+    
+
+    
+
+
+
+    
+    <xsd:complexType name="coreType">
+        <xsd:annotation>
+        	<xsd:documentation>XML representing an Intellectual Property (IP) core.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence maxOccurs="1" minOccurs="1">
+        	<xsd:element name="ID" type="xsd:string" minOccurs="1"
+        		maxOccurs="1">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				Unique IP (Intellectual Property) core
+        				identifier. Each IP core must have such an ID.
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="name" type="xsd:string" maxOccurs="1"
+        		minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				The name of the core.
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="frequency" type="xsd:double"
+        		maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				The operating frequency (in Hz).
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="width" type="xsd:double" maxOccurs="1"
+        		minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				The width (in m) of this core.
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="height" type="xsd:double" maxOccurs="1"
+        		minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				The height (in m) of this core.
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="idlePower" type="xsd:double"
+        		maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				The power (in Watts) consumed by this core when
+        				it doesn't execute any task.
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="task" type="core:taskType"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</xsd:element>
+        	<xsd:element name="node" type="xsd:string" maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>Specifies the Id of the NoC node to which this core is currently mapped to.</xsd:documentation>
+        		</xsd:annotation></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="core" type="core:coreType"></xsd:element>
+
+    <xsd:complexType name="taskType">
+    	<xsd:attribute name="type" type="xsd:string" use="required">
+    		<xsd:annotation>
+    			<xsd:documentation>The type of the task. It specifies to what class of tasks it belongs.</xsd:documentation>
+    		</xsd:annotation></xsd:attribute>
+    	<xsd:attribute name="execTime" use="optional">
+    		<xsd:annotation>
+    			<xsd:documentation>
+    				The execution time (in seconds) of this task, when
+    				it is running on a certain IP core.
+    			</xsd:documentation>
+    		</xsd:annotation>
+    		<xsd:simpleType>
+    			<xsd:restriction base="xsd:double">
+    				<xsd:minExclusive value="0"></xsd:minExclusive>
+    			</xsd:restriction>
+    		</xsd:simpleType>
+    	</xsd:attribute>
+    	<xsd:attribute name="power" use="optional">
+            <xsd:annotation>
+            	<xsd:documentation>The power (in Watts) consumed by this task, when it is running on a certain IP core.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+    			<xsd:restriction base="xsd:double">
+    				<xsd:minExclusive value="0"></xsd:minExclusive>
+    			</xsd:restriction>
+    		</xsd:simpleType>
+    	</xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>

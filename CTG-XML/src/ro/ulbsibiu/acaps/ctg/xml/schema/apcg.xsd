@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/apcg" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:apcg="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/apcg">
+
+    <annotation>
+    	<documentation>XML used for representing the scheduling generated with a scheduling algorithm.</documentation></annotation>
+    <complexType name="apcgType">
+    	<sequence maxOccurs="unbounded" minOccurs="1">
+    		<element name="core" type="apcg:coreType"
+    			maxOccurs="unbounded" minOccurs="1">
+    		</element>
+    	</sequence>
+    	<attribute name="id" type="ID" use="required">
+    		<annotation>
+    			<documentation>The ID of this Application Characterization Graph.</documentation>
+    		</annotation></attribute>
+    	<attribute name="ctg" type="string" use="required">
+    		<annotation>
+    			<documentation>The ID of the Communication Task Graph.</documentation>
+    		</annotation></attribute>
+    </complexType>
+
+
+    <element name="apcg" type="apcg:apcgType"></element>
+
+    <complexType name="coreType">
+    	<sequence maxOccurs="unbounded" minOccurs="1">
+    		<element name="task" type="apcg:taskType"
+    			maxOccurs="unbounded" minOccurs="1">
+    			<annotation>
+    				<documentation>
+    					A task that is assigned to this core.
+    				</documentation>
+    			</annotation>
+    		</element>
+    	</sequence>
+    	<attribute name="uid" type="string" use="required">
+    		<annotation>
+    			<documentation>A unique identifier of a core within the APCG.</documentation>
+    		</annotation></attribute>
+    	<attribute name="id" type="string" use="required">
+    		<annotation>
+    			<documentation>The ID of the core.</documentation>
+    		</annotation>
+    	</attribute>
+    </complexType>
+
+
+    <complexType name="taskType">
+    	<attribute name="id" type="string" use="required"></attribute>
+    	<attribute name="execTime" use="optional">
+    		<annotation>
+    			<documentation>
+    				The execution time (in seconds) of this task, when
+    				it is running on a certain IP core.
+    			</documentation>
+    		</annotation>
+    		<simpleType>
+    			<restriction base="double">
+    				<minExclusive value="0"></minExclusive>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    	<attribute name="power" use="optional">
+    		<annotation>
+    			<documentation>
+    				The power (in Watts) consumed by this task, when it
+    				is running on a certain IP core.
+    			</documentation>
+    		</annotation>
+    		<simpleType>
+    			<restriction base="double">
+    				<minExclusive value="0"></minExclusive>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    </complexType>
+</schema>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<apcg id="0_2" ctg="0" xmlns="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/apcg">
+    <core uid="0" id="45">
+        <task id="0" execTime="6.8E-6" power="0.077"/>
+    </core>
+</apcg>

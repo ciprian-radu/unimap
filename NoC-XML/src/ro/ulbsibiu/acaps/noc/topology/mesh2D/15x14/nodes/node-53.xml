@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<p1:node xmlns:p1="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/node" id="53">
+
+  <p1:topologyParameter topology="mesh2D" type="row" value="3"/>
+
+  <p1:topologyParameter topology="mesh2D" type="column" value="8"/>
+
+  <p1:link type="out" value="49"/>
+
+  <p1:link type="in" value="49"/>
+
+  <p1:link type="out" value="50"/>
+
+  <p1:link type="in" value="50"/>
+
+  <p1:link type="out" value="234"/>
+
+  <p1:link type="in" value="234"/>
+
+  <p1:link type="out" value="249"/>
+
+  <p1:link type="in" value="249"/>
+
+</p1:node>

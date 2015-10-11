@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ctg xmlns="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/ctg" id="7" period="3.33333E-4">
+    <communication>
+        <source id="0"/>
+        <destination id="1">
+            <deadline type="hard">4.0E-4</deadline>
+            <deadline type="soft">1.0E-4</deadline>
+        </destination>
+        <volume>1000.0</volume>
+    </communication>
+</ctg>

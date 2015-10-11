@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/ctg" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ctg="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/ctg">
+
+    <annotation>
+    	<documentation>XML representing a Communication Task Graph.</documentation></annotation>
+    <complexType name="ctgType">
+    	<sequence>
+    		<element name="communication" type="ctg:communicationType"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</element>
+    	</sequence>
+    	<attribute name="id" type="ID" use="required">
+    		<annotation>
+    			<documentation>The ID of this CTG.</documentation>
+    		</annotation></attribute>
+    	<attribute name="period" type="ctg:unsignedDouble" use="optional">
+    		<annotation>
+    			<documentation>The periodicity (in miliseconds) of this CTG.</documentation>
+    		</annotation></attribute>
+    </complexType>
+
+    <complexType name="communicationType">
+    	<sequence maxOccurs="1" minOccurs="1">
+    		<element name="source" type="ctg:communicatingTaskType"
+    			maxOccurs="1" minOccurs="1">
+    			<annotation>
+    				<documentation>
+    					The ID of the communication's source task.
+    				</documentation>
+    			</annotation>
+    		</element>
+    		<element name="destination" type="ctg:communicatingTaskType" maxOccurs="1"
+    			minOccurs="1">
+    			<annotation>
+    				<documentation>
+    					The ID of the communication's destination task.
+    				</documentation>
+    			</annotation>
+    		</element>
+    		<element name="volume" maxOccurs="1" minOccurs="1">
+    			<annotation>
+    				<documentation>The communication volume (in bits).
+    				</documentation>
+    			</annotation>
+    			<simpleType>
+    				<restriction base="double">
+    					<minExclusive value="0"></minExclusive>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <element name="ctg" type="ctg:ctgType"></element>
+
+    <complexType name="communicatingTaskType">
+    	<sequence maxOccurs="unbounded" minOccurs="1">
+    		<element name="deadline" type="ctg:deadlineType"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    	</sequence>
+    	<attribute name="id" type="string" use="required"></attribute>
+    </complexType>
+    
+    <complexType name="deadlineType">
+        <annotation>
+        	<documentation>Task deadline (in milliseconds).</documentation>
+        </annotation>
+        <simpleContent>
+    		<extension base="ctg:unsignedDouble">
+    			<attribute name="type">
+    				<simpleType>
+    					<restriction base="string">
+    						<enumeration value="soft"></enumeration>
+    						<enumeration value="hard"></enumeration>
+    					</restriction>
+    				</simpleType>
+    			</attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+    
+    <simpleType name="unsignedDouble">
+    	<restriction base="double">
+    		<minExclusive value="0"></minExclusive>
+    	</restriction>
+    </simpleType>
+</schema>

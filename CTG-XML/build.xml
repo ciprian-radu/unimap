@@ -1,0 +1,98 @@
+<project name="CTG-XML" default="about" basedir=".">
+	<description>
+        ANT build file
+    </description>
+	<!-- set global properties for this build -->
+	<property name="src" location="src" />
+	<property name="build" location="classes" />
+	<property name="dist" location="dist" />
+
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+		<classpath>
+			<fileset dir="lib" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<target name="about">
+		<echo>The CTG-XML project is responsible with XML data binding (mapping XSDs to Object Oriented code) for Network-on-Chip Communication Task Graphs</echo>
+	</target>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source">
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}" />
+	</target>
+
+	<target name="xjc" description="generate Java code from XSDs">
+		<xjc schema="src/ro/ulbsibiu/acaps/ctg/xml/schema/core.xsd" destdir="src" package="ro.ulbsibiu.acaps.ctg.xml.core" />
+		<xjc schema="src/ro/ulbsibiu/acaps/ctg/xml/schema/task.xsd" destdir="src" package="ro.ulbsibiu.acaps.ctg.xml.task" />
+		<xjc schema="src/ro/ulbsibiu/acaps/ctg/xml/schema/ctg.xsd" destdir="src" package="ro.ulbsibiu.acaps.ctg.xml.ctg" />
+		<xjc schema="src/ro/ulbsibiu/acaps/ctg/xml/schema/apcg.xsd" destdir="src" package="ro.ulbsibiu.acaps.ctg.xml.apcg" />
+		<xjc schema="src/ro/ulbsibiu/acaps/ctg/xml/schema/mapping.xsd" destdir="src" package="ro.ulbsibiu.acaps.ctg.xml.mapping" />
+	</target>
+	
+	<target name="xsd-c++" description="generate C++ code from XSDs">
+		<echo>Creating C++ code based on the XSDs</echo>
+		<exec executable="xsd">
+			<arg value="cxx-tree"/>
+			<arg value="--generate-serialization"/>
+			<arg value="--generate-doxygen"/>
+			<arg value="--output-dir"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/core"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/schema/core.xsd"/>
+		</exec>
+		<exec executable="xsd">
+			<arg value="cxx-tree"/>
+			<arg value="--generate-serialization"/>
+			<arg value="--generate-doxygen"/>
+			<arg value="--output-dir"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/task"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/schema/task.xsd"/>
+		</exec>
+		<exec executable="xsd">
+			<arg value="cxx-tree"/>
+			<arg value="--generate-serialization"/>
+			<arg value="--generate-doxygen"/>
+			<arg value="--output-dir"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/ctg"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/schema/ctg.xsd"/>
+		</exec>
+		<exec executable="xsd">
+			<arg value="cxx-tree"/>
+			<arg value="--generate-serialization"/>
+			<arg value="--generate-doxygen"/>
+			<arg value="--output-dir"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/apcg"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/schema/apcg.xsd"/>
+		</exec>
+		<exec executable="xsd">
+			<arg value="cxx-tree"/>
+			<arg value="--generate-serialization"/>
+			<arg value="--generate-doxygen"/>
+			<arg value="--output-dir"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/mapping"/>
+			<arg value="src/ro/ulbsibiu/acaps/ctg/xml/schema/mapping.xsd"/>
+		</exec>
+		<echo>Done</echo>
+	</target>
+
+	<target name="dist" depends="compile,xjc" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}/lib" />
+
+		<!-- Put everything in ${build} into the CTG-XML-${DSTAMP}.jar file -->
+		<jar jarfile="${dist}/lib/CTG-XML-${DSTAMP}.jar" basedir="${build}" />
+	</target>
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>

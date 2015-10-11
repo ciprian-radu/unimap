@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node core="-1" id="15" xmlns="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/node">
+    <cost>0.2840000092983246</cost>
+    <topologyParameter value="3" type="row" topology="mesh2D"/>
+    <topologyParameter value="3" type="column" topology="mesh2D"/>
+    <link value="11" type="out"/>
+    <link value="11" type="in"/>
+    <link value="23" type="out"/>
+    <link value="23" type="in"/>
+    <routingTableEntry link="23" destination="3" source="12"/>
+    <routingTableEntry link="23" destination="7" source="12"/>
+    <routingTableEntry link="23" destination="11" source="12"/>
+    <routingTableEntry link="23" destination="3" source="13"/>
+    <routingTableEntry link="23" destination="7" source="13"/>
+    <routingTableEntry link="23" destination="11" source="13"/>
+    <routingTableEntry link="23" destination="3" source="14"/>
+    <routingTableEntry link="23" destination="7" source="14"/>
+    <routingTableEntry link="23" destination="11" source="14"/>
+    <routingTableEntry link="11" destination="0" source="15"/>
+    <routingTableEntry link="11" destination="1" source="15"/>
+    <routingTableEntry link="11" destination="2" source="15"/>
+    <routingTableEntry link="23" destination="3" source="15"/>
+    <routingTableEntry link="11" destination="4" source="15"/>
+    <routingTableEntry link="11" destination="5" source="15"/>
+    <routingTableEntry link="11" destination="6" source="15"/>
+    <routingTableEntry link="23" destination="7" source="15"/>
+    <routingTableEntry link="11" destination="8" source="15"/>
+    <routingTableEntry link="11" destination="9" source="15"/>
+    <routingTableEntry link="11" destination="10" source="15"/>
+    <routingTableEntry link="23" destination="11" source="15"/>
+    <routingTableEntry link="11" destination="12" source="15"/>
+    <routingTableEntry link="11" destination="13" source="15"/>
+    <routingTableEntry link="11" destination="14" source="15"/>
+</node>

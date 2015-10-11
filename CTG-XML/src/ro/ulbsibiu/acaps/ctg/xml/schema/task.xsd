@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/task" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:task="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/task">
+
+    <xsd:annotation>
+    	<xsd:documentation>XML schema for a task belonging to a Communiaction Task Graph (CTG).</xsd:documentation></xsd:annotation>
+    
+
+    
+
+
+
+    
+    <xsd:complexType name="taskType">
+    	<xsd:sequence maxOccurs="1" minOccurs="1">
+    		<xsd:element name="ID" type="xsd:ID" minOccurs="1" maxOccurs="1">
+    			<xsd:annotation>
+    				<xsd:documentation>
+    					Unique task identifier. Each task must have such
+    					an ID, for every CTG.
+    				</xsd:documentation>
+    			</xsd:annotation>
+    		</xsd:element>
+    		<xsd:element name="type" type="xsd:string" maxOccurs="1" minOccurs="1">
+    			<xsd:annotation>
+    				<xsd:documentation>The type of the task. It specifies to what class of tasks it belongs.</xsd:documentation></xsd:annotation></xsd:element>
+    		<xsd:element name="name" type="xsd:string" maxOccurs="1" minOccurs="0">
+    			<xsd:annotation>
+    				<xsd:documentation>
+    					The name of the task.
+    				</xsd:documentation>
+    			</xsd:annotation>
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="task" type="task:taskType"></xsd:element>
+</xsd:schema>

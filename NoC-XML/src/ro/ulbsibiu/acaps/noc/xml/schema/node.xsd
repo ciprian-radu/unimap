@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/node" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:node="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/node">
+    <annotation>
+    	<documentation>XML schema for a NoC node.</documentation></annotation>
+
+    <element name="node" type="node:nodeType"></element>
+    
+    <complexType name="nodeType">
+    	<sequence maxOccurs="1" minOccurs="1">
+    		<element name="cost" type="double" minOccurs="0"
+    			maxOccurs="1">
+    			<annotation>
+    				<documentation>
+    					Allows assigning a cost to this node.
+    				</documentation>
+    			</annotation>
+    		</element>
+    		<element name="topologyParameter"
+    			type="node:topologyParameterType" maxOccurs="unbounded"
+    			minOccurs="0">
+    			<annotation>
+    				<documentation>
+    					Each node belongs to a topology and each
+    					topology may have specific characteristics.
+    					Topology parameters allows us to set such
+    					characteristics.
+    				</documentation>
+    			</annotation>
+    		</element>
+    		<element name="link" type="node:linkType"
+    			maxOccurs="unbounded" minOccurs="1">
+    			<annotation>
+    				<documentation>
+    					Each node is connected to other nodes through
+    					links. A node must be connected to at least one
+    					link, otherwise it would be isolated.
+    				</documentation>
+    			</annotation>
+    		</element>
+    		<element name="routingTableEntry" type="node:routingTableEntryType" maxOccurs="unbounded" minOccurs="0">
+    			<annotation>
+    				<documentation>An entry from the routing table attached to this NoC node.</documentation>
+    			</annotation></element>
+    	</sequence>
+    	<attribute name="id" type="ID" use="required">
+    		<annotation>
+    			<documentation>
+    				The unique identifier of this NoC node.
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    	<attribute name="core" type="string" use="optional">
+    		<annotation>
+    			<documentation>
+    				The unique identifier of the core mapped to this
+    				node. This must refer to a core describe through
+    				core.xsd (see ro.ulbsibiu.acaps.ctg.xml.schema).
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    </complexType>
+
+
+    <complexType name="topologyParameterType">
+    	<attribute name="topology" type="string" use="required">
+    		<annotation>
+    			<documentation>
+    				The unique identifier of the topology parameter XML
+    				(see topology-parameter.xsd)
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    	<attribute name="type" type="string">
+    		<annotation>
+    			<documentation>
+    				Specifies the topology parameter from the topology
+    				parameter XML file.
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    	<attribute name="value" type="string" use="optional"></attribute>
+    </complexType>
+
+    <complexType name="linkType">
+    	<attribute name="type" use="required">
+    		<annotation>
+    			<documentation>
+    				The type of this link may be "in" or "out". An "in"
+    				link is a link that enters into this node, i.e. it
+    				brings data. An "out" link is a link that exits from
+    				this node, i.e. it sends data.
+    			</documentation>
+    		</annotation>
+    		<simpleType>
+    			<restriction base="string">
+    				<enumeration value="in"></enumeration>
+    				<enumeration value="out"></enumeration>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    	<attribute name="value" type="string"></attribute>
+    </complexType>
+
+    <simpleType name="typeType">
+    	<restriction base="string"></restriction>
+    </simpleType>
+
+    <complexType name="routingTableEntryType">
+    	<attribute name="source" type="string" use="required">
+    		<annotation>
+    			<documentation>
+    				The node from which the traffic came.
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    	<attribute name="destination" type="string" use="required">
+    		<annotation>
+    			<documentation>
+    				The node to which the traffic must go.
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    	<attribute name="link" type="string" use="required">
+    		<annotation>
+    			<documentation>the ID of the link which will be used to route the traffic from source to destination.</documentation>
+    		</annotation></attribute>
+    </complexType>
+</schema>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mapping runtime="3.060847E9" id="sa_test" xmlns="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/mapping">
+    <map apcg="0_2">
+        <node>1</node>
+        <core>0</core>
+    </map>
+    <map apcg="0_2">
+        <node>2</node>
+        <core>1</core>
+    </map>
+    <map apcg="0_2">
+        <node>3</node>
+        <core>4</core>
+    </map>
+    <map apcg="0_2">
+        <node>4</node>
+        <core>5</core>
+    </map>
+    <map apcg="2_2">
+        <node>5</node>
+        <core>0</core>
+    </map>
+    <map apcg="2_2">
+        <node>6</node>
+        <core>1</core>
+    </map>
+    <map apcg="0_2">
+        <node>7</node>
+        <core>2</core>
+    </map>
+    <map apcg="0_2">
+        <node>8</node>
+        <core>3</core>
+    </map>
+    <map apcg="1_2">
+        <node>9</node>
+        <core>3</core>
+    </map>
+    <map apcg="2_2">
+        <node>10</node>
+        <core>4</core>
+    </map>
+    <map apcg="2_2">
+        <node>11</node>
+        <core>2</core>
+    </map>
+    <map apcg="3_2">
+        <node>12</node>
+        <core>4</core>
+    </map>
+    <map apcg="3_2">
+        <node>13</node>
+        <core>3</core>
+    </map>
+    <map apcg="1_2">
+        <node>14</node>
+        <core>2</core>
+    </map>
+    <map apcg="2_2">
+        <node>15</node>
+        <core>5</core>
+    </map>
+    <map apcg="2_2">
+        <node>16</node>
+        <core>3</core>
+    </map>
+    <map apcg="3_2">
+        <node>17</node>
+        <core>0</core>
+    </map>
+    <map apcg="3_2">
+        <node>18</node>
+        <core>2</core>
+    </map>
+    <map apcg="1_2">
+        <node>19</node>
+        <core>1</core>
+    </map>
+    <map apcg="2_2">
+        <node>20</node>
+        <core>6</core>
+    </map>
+    <map apcg="2_2">
+        <node>21</node>
+        <core>7</core>
+    </map>
+    <map apcg="2_2">
+        <node>22</node>
+        <core>8</core>
+    </map>
+    <map apcg="3_2">
+        <node>23</node>
+        <core>1</core>
+    </map>
+    <map apcg="1_2">
+        <node>24</node>
+        <core>0</core>
+    </map>
+</mapping>

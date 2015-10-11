@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node core="9" id="24" xmlns="http://webspace.ulbsibiu.ro/ciprian.radu/research/noc/application_mapping/unified_framework/schema/node">
+    <cost>0.2840000092983246</cost>
+    <topologyParameter value="4" type="row" topology="mesh2D"/>
+    <topologyParameter value="4" type="column" topology="mesh2D"/>
+    <link value="19" type="out"/>
+    <link value="19" type="in"/>
+    <link value="39" type="out"/>
+    <link value="39" type="in"/>
+    <routingTableEntry link="19" destination="20" source="4"/>
+    <routingTableEntry link="19" destination="21" source="4"/>
+    <routingTableEntry link="19" destination="22" source="4"/>
+    <routingTableEntry link="19" destination="23" source="4"/>
+    <routingTableEntry link="19" destination="20" source="9"/>
+    <routingTableEntry link="19" destination="21" source="9"/>
+    <routingTableEntry link="19" destination="22" source="9"/>
+    <routingTableEntry link="19" destination="23" source="9"/>
+    <routingTableEntry link="19" destination="20" source="14"/>
+    <routingTableEntry link="19" destination="21" source="14"/>
+    <routingTableEntry link="19" destination="22" source="14"/>
+    <routingTableEntry link="19" destination="23" source="14"/>
+    <routingTableEntry link="19" destination="20" source="19"/>
+    <routingTableEntry link="19" destination="21" source="19"/>
+    <routingTableEntry link="19" destination="22" source="19"/>
+    <routingTableEntry link="19" destination="23" source="19"/>
+    <routingTableEntry link="39" destination="0" source="24"/>
+    <routingTableEntry link="39" destination="1" source="24"/>
+    <routingTableEntry link="39" destination="2" source="24"/>
+    <routingTableEntry link="39" destination="3" source="24"/>
+    <routingTableEntry link="39" destination="4" source="24"/>
+    <routingTableEntry link="39" destination="5" source="24"/>
+    <routingTableEntry link="39" destination="6" source="24"/>
+    <routingTableEntry link="39" destination="7" source="24"/>
+    <routingTableEntry link="39" destination="8" source="24"/>
+    <routingTableEntry link="39" destination="9" source="24"/>
+    <routingTableEntry link="39" destination="10" source="24"/>
+    <routingTableEntry link="39" destination="11" source="24"/>
+    <routingTableEntry link="39" destination="12" source="24"/>
+    <routingTableEntry link="39" destination="13" source="24"/>
+    <routingTableEntry link="39" destination="14" source="24"/>
+    <routingTableEntry link="39" destination="15" source="24"/>
+    <routingTableEntry link="39" destination="16" source="24"/>
+    <routingTableEntry link="39" destination="17" source="24"/>
+    <routingTableEntry link="39" destination="18" source="24"/>
+    <routingTableEntry link="39" destination="19" source="24"/>
+    <routingTableEntry link="19" destination="20" source="24"/>
+    <routingTableEntry link="19" destination="21" source="24"/>
+    <routingTableEntry link="19" destination="22" source="24"/>
+    <routingTableEntry link="19" destination="23" source="24"/>
+</node>

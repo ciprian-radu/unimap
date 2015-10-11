@@ -1,0 +1,60 @@
+## -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+
+def build(bld):
+    orion = bld.new_task_gen('cxx', 'shlib')
+    #orion.cxxflags = '-fPIC'
+    orion.includes = '.'
+    orion.source = [
+    	'SIM_router.cc',
+    	'SIM_arbiter.cc',
+    	'SIM_crossbar.cc',
+    	'SIM_router_power.cc',
+    	'SIM_link.cc',
+    	'SIM_clock.cc',
+    	'SIM_router_area.cc',
+    	'SIM_array_l.cc',
+    	'SIM_array_m.cc',
+    	'SIM_cam.cc',
+    	'SIM_ALU.cc',
+    	'SIM_misc.cc',
+    	'SIM_permu.cc',
+    	'SIM_static.cc',
+    	'SIM_util.cc',
+    	'SIM_time.cc',
+        ]
+    orion.target = 'orion'
+    orion.uselib_local = 'ns3'
+
+# test_alu cannot be compiled because we miss SIM_power_ALU.h
+#    obj = bld.create_ns3_program('test_alu', ['orion'])
+#    obj.source = 'test_alu.c'
+    				
+    obj = bld.new_task_gen()
+    obj.features = 'cxx cprogram'
+    obj.source = 'test_permu.cc SIM_util.cc SIM_permu.cc SIM_time.cc'
+    obj.includes = '.'
+    obj.lib = 'm'
+    obj.target = 'test_permu'
+    
+    obj = bld.new_task_gen()
+    obj.features = 'cxx cprogram'
+    obj.source = 'orion_link.cc SIM_link.cc'
+    obj.includes = '.'
+    obj.lib = 'm'
+    obj.target = 'orion_link'
+     
+    obj = bld.new_task_gen()
+    obj.features = 'cxx cprogram'
+    obj.source = 'orion_router_power.cc SIM_router_power.cc SIM_crossbar.cc SIM_time.cc SIM_util.cc SIM_static.cc SIM_array_l.cc SIM_cam.cc SIM_misc.cc SIM_arbiter.cc SIM_array_m.cc SIM_clock.cc SIM_router.cc SIM_link.cc SIM_router_area.cc'
+    obj.includes = '.'
+    obj.lib = 'm'
+    obj.uselib_local = 'ns3'
+    obj.target = 'orion_router_power'
+      
+    obj = bld.new_task_gen()
+    obj.features = 'cxx cprogram'
+    obj.source = 'orion_router_area.cc SIM_router.cc SIM_link.cc SIM_router_area.cc SIM_array_l.cc SIM_time.cc SIM_util.cc SIM_static.cc SIM_misc.cc SIM_router_power.cc SIM_clock.cc SIM_array_m.cc SIM_arbiter.cc SIM_crossbar.cc SIM_cam.cc'
+    obj.includes = '.'
+    obj.lib = 'm'
+    obj.uselib_local = 'ns3'
+    obj.target = 'orion_router_area'
